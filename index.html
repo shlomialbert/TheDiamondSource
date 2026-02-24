@@ -508,9 +508,6 @@
         text-align: center;
       }
 
-      .hero p {
-        display: none;
-      }
     }
 
     /* =========================================================
@@ -2988,7 +2985,7 @@
       gap: 20px;
     }
 
-    .submit-btn {
+    .submitbtn {
       width: 100%;
       padding: 18px;
       background-color: var(--primary);
@@ -3002,7 +2999,7 @@
       transition: all 0.3s ease;
     }
 
-    .submit-btn:hover {
+    .submitbtn:hover {
       background-color: white;
       /* Slightly lighter navy */
       transform: translateY(-2px);
@@ -3129,7 +3126,7 @@
     }
 
     /* Submit button */
-    .contact-section .submit-btn {
+    .contact-section .submitbtn {
       border-radius: 999px;
     }
 
@@ -3301,7 +3298,7 @@
       border-radius: 8px;
     }
 
-    .form-actions .submit-btn {
+    .form-actions .submitbtn {
       border-radius: 999px;
     }
 
@@ -3621,7 +3618,7 @@
         <div class="hero-inner">
           <div>
             <h1>The Source for Rare & Exquisite.</h1>
-            <p>
+            <p style="text-align: center;">
               GIA Certified Natural Diamonds & Rare
               Antique Estate Pieces.
             </p>
@@ -3822,7 +3819,7 @@
                   </div>
 
                   <div class="form-actions">
-                    <button type="submit" class="submit-btn">
+                    <button type="submit" class="submitbtn">
                       Submit Inquiry
                     </button>
                     <!--
@@ -4888,6 +4885,50 @@
       <div class="success-text">We will get back to you soon.</div>
     </div>
   </div>
+
+  <script>
+    const GOOGLE_SCRIPT_URL = "paste here";
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const forms = [document.getElementById("inquiryForm"), document.getElementById("contactForm")];
+      const successOverlay = document.getElementById("contact-success");
+
+      forms.forEach(form => {
+        if (!form) return;
+        form.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const submitbtn = form.querySelector('button[type="submit"]');
+          submitbtn.innerText = "Sending...";
+          submitbtn.disabled = true;
+
+          const payload = {
+            fullName: form.querySelector('input[name="fullName"]')?.value || form.querySelector('input[placeholder*="Name"]')?.value || "",
+            phone: form.querySelector('input[name="phone"]')?.value || form.querySelector('input[placeholder*="Phone"]')?.value || "",
+            email: form.querySelector('input[type="email"]')?.value || "",
+            details: form.querySelector('textarea')?.value || form.querySelector('select')?.value || form.querySelector('input[placeholder*="item"]')?.value || "",
+            preferredContact: form.querySelector('select[name="preferredContact"]')?.value || "",
+          };
+
+          try {
+            await fetch(GOOGLE_SCRIPT_URL, {
+              method: "POST",
+              mode: "no-cors",
+              body: JSON.stringify(payload)
+            });
+
+            successOverlay.classList.add("show");
+            form.reset();
+            setTimeout(() => successOverlay.classList.remove("show"), 4000);
+          } catch (err) {
+            alert("Error sending. Please call +1 312 971 1616");
+          } finally {
+            submitbtn.innerText = "Submit Inquiry";
+            submitbtn.disabled = false;
+          }
+        });
+      });
+    });
+  </script>
 </body>
 
 
