@@ -1174,41 +1174,44 @@
       color: white;
     }
 
-.other-links {
-  display: flex;
-  flex-direction: column;
-  padding-top: 20px;
-  gap: 20px;
-  align-items: center;
-}
+    .other-links {
+      display: flex;
+      flex-direction: column;
+      padding-top: 20px;
+      gap: 20px;
+      align-items: center;
+    }
 
-.other-links {
-  display: flex;
-  flex-direction: column;
-  padding-top: 20px;
-  gap: 20px;
-  align-items: center;
-}
+    .other-links {
+      display: flex;
+      flex-direction: column;
+      padding-top: 20px;
+      gap: 20px;
+      align-items: center;
+    }
 
-/* Each logo wrapper gets the square */
-.other-links1,
-.other-links2 {
-  width: 140px;      /* adjust to your preference */
-  height: 60px;      /* identical visual height */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0 !important;
-}
+    /* Each logo wrapper gets the square */
+    .other-links1,
+    .other-links2 {
+      width: 140px;
+      /* adjust to your preference */
+      height: 60px;
+      /* identical visual height */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0 !important;
+    }
 
-.other-links img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  display: block;
-}
+    .other-links img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      display: block;
+    }
 
-@media (max-width: 600px) {
+    @media (max-width: 600px) {
+
       /* 1. Create a 2-column grid for the mobile footer */
       .footer-inner {
         grid-template-columns: 1fr 1fr !important;
@@ -1225,7 +1228,8 @@
       /* 3. Force the bottom logos into their own full-width row and place them side-by-side */
       .other-links {
         grid-column: 1 / -1 !important;
-        flex-direction: row !important; /* Changes them from stacked to side-by-side */
+        flex-direction: row !important;
+        /* Changes them from stacked to side-by-side */
         justify-content: center !important;
         gap: 30px !important;
         padding-top: 10px !important;
@@ -1241,8 +1245,10 @@
       .other-links1,
       .other-links2 {
         width: 120px !important;
-        height: 50px !important; /* Use a fixed height instead of 'auto' */
-        flex-shrink: 0 !important; /* CRITICAL: Prevents them from squishing */
+        height: 50px !important;
+        /* Use a fixed height instead of 'auto' */
+        flex-shrink: 0 !important;
+        /* CRITICAL: Prevents them from squishing */
       }
     }
 
@@ -1254,10 +1260,12 @@
         grid-column: 1 / -1 !important;
         width: 100% !important;
         margin: 0 auto !important;
-        padding: 20px 0 0 0 !important; /* Zero left/right padding */
+        padding: 20px 0 0 0 !important;
+        /* Zero left/right padding */
         display: flex !important;
         flex-direction: row !important;
-        justify-content: center !important; /* Centers the boxes */
+        justify-content: center !important;
+        /* Centers the boxes */
         align-items: center !important;
         gap: 20px !important;
         box-sizing: border-box !important;
@@ -1282,24 +1290,29 @@
         width: auto !important;
         height: auto !important;
         object-fit: contain !important;
-        margin: 0 auto !important; /* The magic centering fix */
+        margin: 0 auto !important;
+        /* The magic centering fix */
         display: block !important;
       }
     }
 
     /* Phone link responsive text */
-    .nav-phone, .nav-ticker {
+    .nav-phone,
+    .nav-ticker {
       white-space: nowrap;
       overflow-wrap: normal;
       word-break: keep-all;
     }
+
     .phone-short {
       display: none;
     }
+
     @media (max-width: 480px) {
       .phone-full {
         display: none;
       }
+
       .phone-short {
         display: inline;
       }
@@ -1309,6 +1322,7 @@
        #CONTACT SECTION - UNIFIED MOBILE FIX
     ========================================================= */
     @media (max-width: 900px) {
+
       /* Stop the background from spilling */
       #contact.contact-light-bg,
       .contact-light-bg {
@@ -1383,8 +1397,10 @@
         justify-content: center !important;
         border-radius: 12px !important;
         background: none !important;
-        border: 1px solid white !important; /* Adjusted to white for dark background */
-        color: white !important; /* Adjusted to white for dark background */
+        border: 1px solid white !important;
+        /* Adjusted to white for dark background */
+        color: white !important;
+        /* Adjusted to white for dark background */
       }
 
       #contact .contact-label {
@@ -1434,12 +1450,15 @@
     .brand-name {
       font-family: "Playfair Display", serif;
       font-size: 1.75rem;
-      font-weight: 800; /* Makes it bolder */
-      letter-spacing: -0.02em; /* Tightens the spacing */
-      color: white; 
+      font-weight: 800;
+      /* Makes it bolder */
+      letter-spacing: -0.02em;
+      /* Tightens the spacing */
+      color: white;
       white-space: nowrap;
       overflow: hidden;
-      text-overflow: ellipsis; /* Prevents wrapping weirdly */
+      text-overflow: ellipsis;
+      /* Prevents wrapping weirdly */
       min-width: 0;
     }
 
@@ -1448,8 +1467,9 @@
       .brand-name {
         font-size: 1.15rem !important;
       }
+
       .nav-inner .nav-links {
-          display: none !important;
+        display: none !important;
       }
     }
   </style>
@@ -1583,7 +1603,7 @@
 
             <div class="form-group">
               <label class="form-label">Item information</label>
-              <input type="text" class="form-input" placeholder="Tekk us about your item..."/>
+              <input type="text" class="form-input" placeholder="Tekk us about your item..." />
             </div>
 
             <!--   <div class="form-group">
@@ -1723,12 +1743,26 @@
           submitbtn.disabled = true;
 
           const payload = {
-            fullName: form.querySelector('input[name="fullName"]')?.value || form.querySelector('input[placeholder*="Name"]')?.value || "",
-            phone: form.querySelector('input[name="phone"]')?.value || form.querySelector('input[placeholder*="Phone"]')?.value || "",
+            // Finds name by checking your specific placeholder
+            fullName: form.querySelector('input[placeholder*="John Doe"]')?.value ||
+              form.querySelector('input[placeholder*="Name"]')?.value || "",
+
+            // Finds phone by type
+            phone: form.querySelector('input[type="tel"]')?.value || "",
+
+            // Finds email by type
             email: form.querySelector('input[type="email"]')?.value || "",
-            details: form.querySelector('textarea')?.value || form.querySelector('select')?.value || form.querySelector('input[placeholder*="item"]')?.value || "",
-            preferredContact: form.querySelector('select[name="preferredContact"]')?.value || "Not Provided",
+
+            // Logic for the Details/Interest column
+            // Checks for the "Tekk us..." input (What We Buy) or the select/textarea (Index)
+            details: form.querySelector('input[placeholder*="Tekk"]')?.value ||
+              form.querySelector('select')?.value ||
+              form.querySelector('textarea')?.value || "",
+
+            // Checks for the second select (Preference) - if missing, it sends "Not Provided"
+            preferredContact: form.querySelectorAll('select')[1]?.value || "Not Provided"
           };
+
 
           try {
             await fetch(GOOGLE_SCRIPT_URL, {
