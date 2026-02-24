@@ -1,0 +1,9 @@
+# Allow all search engines to crawl the site
+User-agent: *
+Allow: /
+
+# Prevent indexing of specific video/large files to save bandwidth (Optional)
+Disallow: /backgroundvideo.mp4
+
+# Direct link to your sitemap (Replace with your actual domain)
+Sitemap: https://www.yourdomain.com/sitemap.xml

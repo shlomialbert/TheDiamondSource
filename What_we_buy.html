@@ -1,0 +1,1710 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FAQs | Midwest Diamond Buyers</title>
+  <meta name="description"
+    content="Frequently asked questions about selling diamonds, gold, estate jewelry, and luxury watches at Midwest Diamond Buyers in Chicago." />
+
+  <!-- Fonts (match site) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    /* =========================================================
+    SECTION 2: WHAT WE BUY (clear break, modern slate wash)
+    ========================================================= */
+    #home-view .wwb {
+      background: radial-gradient(900px 520px at 20% 18%,
+          rgba(0, 162, 94, 0.1),
+          transparent 62%),
+        radial-gradient(900px 520px at 80% 18%,
+          rgba(255, 174, 0, 0.1),
+          transparent 64%);
+      border-top: 1px solid rgba(11, 15, 23, 0.08);
+      border-bottom: 1px solid rgba(11, 15, 23, 0.08);
+    }
+
+    .wwb {
+      position: relative;
+    }
+
+    .wwb-inner {
+      position: relative;
+      width: min(var(--container), 92vw);
+      margin: 0 auto;
+      /* display: grid;
+        grid-template-columns: 1.15fr 0.85fr;*/
+      gap: 26px;
+      align-items: center;
+    }
+
+    /* rail */
+    .wwb-rail {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      overflow: auto;
+      padding: 8px 4px 12px;
+      scroll-snap-type: x proximity;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .wwb-rail::-webkit-scrollbar {
+      height: 10px;
+    }
+
+    .wwb-rail::-webkit-scrollbar-thumb {
+      background: rgba(11, 15, 23, 0.14);
+      border-radius: 999px;
+    }
+
+    /* cards */
+    .wwb-item {
+      flex: 0 0 260px;
+      height: 600px;
+      border-radius: var(--rXL);
+      overflow: hidden;
+      position: relative;
+      box-shadow: var(--shadowSoft);
+      scroll-snap-align: start;
+      cursor: pointer;
+      transition: transform var(--t), box-shadow var(--t);
+    }
+
+    .wwb-item:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .wwb-front,
+    .wwb-back {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .wwb-front img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.02);
+      transition: transform 900ms var(--ease), opacity var(--t), filter 900ms var(--ease);
+      filter: saturate(1.02) contrast(1.02);
+    }
+
+    .wwb-front::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg,
+          rgba(0, 0, 0, 0.06),
+          rgba(0, 0, 0, 0.72));
+    }
+
+    .wwb-front .wwb-meta {
+      position: relative;
+      padding: 16px 16px 14px;
+    }
+
+    .wwb-front .wwb-n {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .wwb-front .wwb-name {
+      font-family: "Playfair Display", serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      line-height: 1.15;
+      margin-top: 6px;
+      color: rgba(255, 255, 255, 0.94);
+    }
+
+    .wwb-back {
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity var(--t), transform var(--t);
+      padding: 18px;
+      background: radial-gradient(540px 220px at 20% 20%,
+          rgba(0, 85, 162, 0.18),
+          transparent 60%),
+        linear-gradient(180deg,
+          rgba(11, 15, 23, 0.78),
+          rgba(11, 15, 23, 0.86));
+      color: var(--onDark);
+    }
+
+    .wwb-back h4 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      line-height: 1.15;
+      margin-bottom: 10px;
+    }
+
+    .wwb-back p {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.98rem;
+      line-height: 1.55;
+    }
+
+    .wwb-back .wwb-cta {
+      margin-top: 12px;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(126, 230, 209, 0.92);
+      font-weight: 900;
+    }
+
+    .wwb-item:hover .wwb-front img {
+      transform: scale(1.07);
+      opacity: 0.9;
+      /* add a subtle blur on hover at ~75% intensity 
+      filter: saturate(1.02) contrast(1.02) blur(1.5px);*/
+    }
+
+    .wwb-item:hover .wwb-back {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .wwb-copy {
+      padding-left: 80px;
+    }
+
+    .wwb-copy .k {
+      color: rgba(0, 85, 162, 0.82);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-size: 0.7rem;
+      margin-bottom: 10px;
+    }
+
+    .wwb-copy h3 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(1.8rem, 2.6vw, 2.3rem);
+      font-weight: 600;
+      line-height: 1.1;
+      margin-bottom: 10px;
+      color: var(--ink);
+    }
+
+    .wwb-copy p {
+      color: var(--ink2);
+      max-width: 44ch;
+    }
+
+    @media (max-width: 980px) {
+      .wwb-inner {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .wwb-copy {
+        padding-left: 0;
+      }
+
+      .wwb-copy p {
+        color: var(--ink2);
+        max-width: 44ch;
+        margin: 0 auto;
+        /* centers the paragraph block */
+        text-align: center;
+        /* centers the text */
+      }
+
+      .wwb-item {
+        flex-basis: 78vw;
+        height: 320px;
+      }
+    }
+
+    /* (keep your “bleed wider” rail effect on home) */
+    #home-view .wwb-rail {
+      margin-left: calc((100vw - min(var(--container), 92vw)) / -2);
+      padding-left: calc((100vw - min(var(--container), 92vw)) / 2 + 16px);
+    }
+
+    /* =========================================================
+   WHAT WE BUY — standalone page CSS
+   Matches index.html tokens + WWB section behavior
+   ========================================================= */
+
+    /* If your page already loads the main site CSS (with :root tokens),
+   you can delete this :root block to avoid duplicates.
+   Keeping it here makes this file "self-sufficient". */
+    :root {
+      --brand: #0055a2;
+      --gold: #c9a65d;
+      --mint: #7ee6d1;
+
+      --ink: #0b0f17;
+      --ink2: rgba(11, 15, 23, .78);
+
+      --onDark: rgba(255, 255, 255, .92);
+
+      --paper: #fbfbf9;
+
+      --shadow: 0 18px 60px rgba(0, 0, 0, .18);
+      --shadowSoft: 0 10px 30px rgba(0, 0, 0, .12);
+
+      --rXL: 28px;
+
+      --container: 1120px;
+      --ease: cubic-bezier(.16, 1, .3, 1);
+      --t: 520ms var(--ease);
+    }
+
+    /* Page baseline */
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      background: var(--paper);
+      color: var(--ink);
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* =========================================================
+   WWB Section (same look as your home section)
+   ========================================================= */
+    .wwb {
+      position: relative;
+      background: linear-gradient(135deg, rgba(126, 230, 209, 0.55), rgba(0, 85, 162, 0.92));
+      border-top: 1px solid rgba(11, 15, 23, .08);
+    }
+
+
+    .wwb-inner {
+      width: min(var(--container), 92vw);
+      margin: 0 auto;
+      position: relative;
+    }
+
+    /* rail (3-up desktop, scrollable if needed) */
+    .wwb-rail {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 75px;
+      overflow: auto;
+      padding: 8px 4px 12px;
+      scroll-snap-type: x proximity;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .wwb-rail::-webkit-scrollbar {
+      height: 10px;
+    }
+
+    .wwb-rail::-webkit-scrollbar-thumb {
+      background: rgba(11, 15, 23, .14);
+      border-radius: 999px;
+    }
+
+    /* card */
+    .wwb-item {
+      height: 600px;
+      border-radius: var(--rXL);
+      overflow: hidden;
+      position: relative;
+      box-shadow: var(--shadowSoft);
+      scroll-snap-align: start;
+      cursor: pointer;
+      transition: transform var(--t), box-shadow var(--t);
+    }
+
+    .wwb-item:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .wwb-front,
+    .wwb-back {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    /* image */
+    .wwb-front img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.02);
+      filter: saturate(1.02) contrast(1.02);
+      transition: transform 900ms var(--ease), opacity var(--t), filter 900ms var(--ease);
+    }
+
+    /* gradient overlay */
+    .wwb-front::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0, 0, 0, .06), rgba(0, 0, 0, .72));
+    }
+
+    .wwb-meta {
+      position: relative;
+      padding: 16px 16px 14px;
+    }
+
+    .wwb-name {
+      font-family: "Playfair Display", serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      line-height: 1.15;
+      color: rgba(255, 255, 255, .94);
+    }
+
+    /* back (reveal on hover) */
+    .wwb-back {
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity var(--t), transform var(--t);
+      padding: 18px;
+      color: var(--onDark);
+      background:
+        radial-gradient(540px 220px at 20% 20%, rgba(0, 85, 162, .18), transparent 60%),
+        linear-gradient(180deg, rgba(11, 15, 23, .78), rgba(11, 15, 23, .86));
+    }
+
+    .wwb-back h4 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      line-height: 1.15;
+      margin: 0 0 10px;
+    }
+
+    .wwb-back p {
+      margin: 0;
+      color: rgba(255, 255, 255, .80);
+      font-size: .98rem;
+      line-height: 1.55;
+    }
+
+    .wwb-item:hover .wwb-front img {
+      transform: scale(1.07);
+      opacity: .90;
+    }
+
+    .wwb-item:hover .wwb-back {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =========================================================
+   Responsive
+   ========================================================= */
+    @media (max-width: 980px) {
+      .wwb-rail {
+        grid-template-columns: 1fr;
+        /* stack cards */
+        overflow: visible;
+        padding: 0;
+      }
+
+      .wwb-item {
+        height: 320px;
+        width: min(92vw, 520px);
+        margin: 0 auto 14px;
+      }
+    }
+
+    .wwb h2 {
+      font-family: playfair display, serif;
+      font-size: 4rem;
+      text-align: center;
+      color: white;
+    }
+
+
+
+
+
+    /* contact us */
+    .contact-section {
+      position: relative;
+      padding: clamp(42px, 6vh, 72px) 0;
+      background: linear-gradient(135deg, rgba(126, 230, 209, 0.55), rgba(0, 85, 162, 0.92));
+    }
+
+    .contact-section {
+      background-color: var(--bg-white);
+      padding: 100px 0;
+    }
+
+    .contact-section {
+      background: radial-gradient(900px 520px at 20% 18%,
+          rgba(0, 85, 162, 0.18),
+          transparent 62%),
+        linear-gradient(180deg, #0b0f17 0%, #070b12 100%);
+    }
+
+    .container .kicker {
+      display: block;
+      width: 100%;
+      font-size: 3rem;
+      text-align: center;
+      margin-bottom: 40px;
+      color: white;
+    }
+
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      /* Text left, Form right */
+      gap: 80px;
+      align-items: start;
+    }
+
+    /* Left Column: Context */
+    .contact-context h2 {
+      margin-top: 55px;
+      font-size: 4.5rem;
+      color: white;
+      margin-bottom: 20px;
+      margin-left: 0;
+      text-align: center;
+      line-height: 0.95;
+    }
+
+    .contact-context p {
+      font-size: clamp(1rem, 4vw, 1.2rem);
+      line-height: 1.3;
+      font-weight: 400;
+      margin-left: 0;
+      color: white;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .option {
+      display: grid;
+    }
+
+    .direct-contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-left: 0;
+    }
+
+    .direct-contact-item {
+      position: relative;
+      display: inline-block;
+      padding: 12px 20px;
+      background-color: var(--accent);
+      color: rgb(0, 0, 0);
+      text-decoration: none;
+      overflow: hidden;
+      margin-bottom: 24px;
+      border: 1.5px solid rgb(255, 255, 255);
+      transition: all 0.3s ease;
+      border-radius: 999px;
+    }
+
+    .direct-contact-item .contact-value {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      color: var(--primary);
+      padding: 10px;
+      border-radius: 0 0 8px 8px;
+      text-align: center;
+      font-weight: 500;
+      transition: top 0.3s ease, opacity 0.3s ease;
+      opacity: 0;
+      pointer-events: none;
+      border-color: white;
+    }
+
+    /* On hover (desktop), show value 
+@media (min-width: 901px) {
+    .direct-contact-item:hover .contact-value{
+        top: 100%;
+        transform: translateY(-100%);
+        opacity: 1;
+        pointer-events: auto;
+    }
+}
+*/
+    /* Mobile view: always show value, click works via the <a> tag */
+    @media (max-width: 900px) {
+      .direct-contact-item {
+        width: 100%;
+        text-align: center;
+      }
+
+      .direct-contact-item {
+        position: static;
+        transform: none;
+        opacity: 1;
+        margin-top: 8px;
+        pointer-events: none;
+        background: none;
+        color: var(--primary);
+        border-color: white;
+      }
+    }
+
+    .contact-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: white;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 0;
+      text-align: center;
+    }
+
+    .contact-value {
+      font-size: 1.1rem;
+      color: var(--primary);
+      font-family: "Playfair Display", serif;
+      text-decoration: none;
+    }
+
+    /* Right Column: The Form */
+    .inquiry-form {
+      background: #000;
+      padding: 40px;
+      border: 1px solid var(--border);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.03);
+      /* Subtle luxury lift */
+    }
+
+    .form-group {
+      margin-bottom: 24px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: white;
+    }
+
+    /* High-end Input Styling */
+    .form-input,
+    .form-select {
+      width: 100%;
+      padding: 16px;
+      background-color: #000000;
+      border: 1px solid #000000;
+      border-radius: 0;
+      /* Sharp edges feel more "Cartier" */
+      font-family: "Inter", sans-serif;
+      font-size: 1rem;
+      color: var(--text-main);
+      transition: all 0.3s ease;
+      appearance: none;
+      /* Removes default browser styling */
+    }
+
+    .form-input:focus,
+    .form-select:focus {
+      outline: none;
+      border-color: var(--accent);
+      background-color: #000000;
+      box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.1);
+    }
+
+    /* 2-Column Grid for short fields */
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    /* Actions Area */
+    .form-actions {
+      margin-top: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 18px;
+      background-color: var(--primary);
+      color: white;
+      border: 1px solid var(--primary);
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      background-color: white;
+      /* Slightly lighter navy */
+      transform: translateY(-2px);
+      color: black;
+    }
+
+    .divider-text {
+      text-align: center;
+      font-size: 1.3rem;
+      color: black;
+      position: relative;
+    }
+
+    .divider-text::before,
+    .divider-text::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: 40%;
+      height: 1px;
+      background: black;
+    }
+
+    .divider-text::before {
+      left: 0;
+    }
+
+    .divider-text::after {
+      right: 0;
+    }
+
+    .schedule-btn {
+      width: 100%;
+      padding: 18px;
+      background-color: transparent;
+      color: rgb(255, 255, 255);
+      border: 1px solid var(--border);
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .schedule-btn:hover {
+      border-color: var(--primary);
+      background-color: rgba(0, 0, 0);
+      transform: translateY(-2px);
+      color: white;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 900px) {
+      .contact-wrapper {
+        grid-template-columns: 1fr;
+        /* Stack vertically */
+        gap: 50px;
+      }
+
+      .contact-context {
+        text-align: center;
+      }
+
+      .contact-context p {
+        margin: 0 auto 40px auto;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+        /* Stack inputs on mobile */
+      }
+
+      .inquiry-form {
+        padding: 25px;
+      }
+
+      .container .kicker {
+        font-size: 2rem;
+        margin-bottom: 20px;
+      }
+    }
+
+    /* ==================================================
+   CONTACT SECTION – CURVED INQUIRY FORM ONLY
+   ================================================== */
+
+    .contact-section .inquiry-form {
+      border-radius: 28px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadowSoft);
+    }
+
+    /* Form inner spacing stays intact */
+    .contact-section .inquiry-form form {
+      border-radius: inherit;
+    }
+
+    /* Inputs & selects */
+    .contact-section .form-input,
+    .contact-section .form-select {
+      border-radius: 14px;
+      background: white;
+      border: 1px solid var(--line2);
+      color: black;
+    }
+
+    .contact-section .form-input::placeholder {
+      color: black;
+    }
+
+    .contact-section .form-select {
+      color: black;
+    }
+
+    /* Focus state */
+    .contact-section .form-input:focus,
+    .contact-section .form-select:focus {
+      outline: none;
+    }
+
+    /* Submit button */
+    .contact-section .submit-btn {
+      border-radius: 999px;
+    }
+
+    /* Schedule button */
+    .contact-section .schedule-btn {
+      border-radius: 999px;
+    }
+
+    /* =========================================================
+   NAVBAR — shared across all pages
+   ========================================================= */
+
+    :root {
+      --nav-h: 108px;
+    }
+
+    /* fixed nav */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(11, 15, 23, 0.78);
+      backdrop-filter: blur(18px) saturate(160%);
+      border-bottom: 1px solid rgba(11, 15, 23, 0.1);
+    }
+
+    /* inner container */
+    .nav-inner {
+      width: min(1120px, 92vw);
+      margin-inline: auto;
+      padding: 18px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .nav-ticker:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.02);
+    }
+
+    /* Nav links */
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 10px 2px;
+      transition: color var(--t), opacity var(--t), transform var(--t);
+      cursor: pointer;
+    }
+
+    .nav-links a:hover {
+      color: rgba(0, 85, 162, 0.95);
+      transform: translateY(-1px);
+    }
+
+
+    /* logo */
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+    }
+
+    .logo-mark {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.05;
+    }
+
+    .logo-main {
+      font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      font-size: 1.55rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #0055a2;
+    }
+
+    /* phone pill */
+    .nav-ticker {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: linear-gradient(135deg,
+          rgba(0, 85, 162, 0.1),
+          rgba(126, 230, 209, 0.22));
+      border: 1px solid rgba(0, 85, 162, 0.18);
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 850;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.72rem;
+      text-decoration: none;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, .12);
+      transition: transform 0.4s ease, filter 0.4s ease;
+    }
+
+    .nav-ticker:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.02);
+    }
+
+    /* mobile adjustments */
+    @media (max-width: 860px) {
+      :root {
+        --nav-h: 78px;
+      }
+
+      .nav-inner {
+        padding: 12px 0;
+      }
+
+      .logo-main {
+        font-size: 1.1rem;
+      }
+
+      .nav-ticker {
+        font-size: 0.68rem;
+        padding: 10px 12px;
+      }
+    }
+
+    /* IMPORTANT: push page content below fixed nav */
+    body {
+      padding-top: var(--nav-h);
+    }
+
+    .brand-link {
+      display: inline-block;
+      text-decoration: none;
+      color: white;
+      font-family: playfair display, serif;
+      font-size: 1.55rem;
+      cursor: pointer;
+    }
+
+
+    /* WHAT WE BUY — final background (authoritative) */
+    /* WHAT WE BUY — flipped for downward visual flow */
+    .wwb {
+      background:
+        radial-gradient(900px 520px at 20% 82%,
+          rgba(0, 85, 162, 0.18),
+          transparent 62%),
+        linear-gradient(0deg,
+          #0b0f17 0%,
+          #070b12 100%);
+
+      border-top: 1px solid rgba(11, 15, 23, 0.08);
+    }
+
+
+    /* Remove the white strip created by body padding-top */
+    body {
+      padding-top: 1 !important;
+    }
+
+    /* Let the WWB background start at the top, but keep content below the fixed nav */
+    .wwb {
+      margin-top: calc(var(--nav-h) * -1);
+      padding-top: var(--nav-h);
+    }
+
+    /* =========================================================
+    FOOTER (dark, premium; follows reviews)
+    ========================================================= */
+    .site-footer {
+      background: linear-gradient(180deg, #07090f 0%, #05070c 100%);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-inner {
+      width: min(var(--container), 92vw);
+      margin: 0 auto;
+      padding: 48px 0 32px;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 24px;
+    }
+
+    .footer-name {
+      font-family: "Playfair Display", serif;
+      font-size: 1.25rem;
+      font-weight: 750;
+      margin-bottom: 10px;
+      color: var(--onDark);
+    }
+
+    .footer-desc {
+      color: rgba(255, 255, 255, 0.68);
+      max-width: 45ch;
+      margin-bottom: 16px;
+    }
+
+    .footer-title {
+      font-size: 0.7rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.52);
+      margin-bottom: 14px;
+    }
+
+    .footer-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.82);
+      opacity: 0.72;
+      text-decoration: none;
+      transition: opacity var(--t), transform var(--t);
+    }
+
+    .footer-links a:hover {
+      opacity: 1;
+      transform: translateY(-1px);
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 10px;
+    }
+
+    .social-link {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.06);
+      transition: transform var(--t), box-shadow var(--t);
+    }
+
+    .social-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    .social-link svg {
+      width: 16px;
+      height: 16px;
+      fill: rgba(255, 255, 255, 0.86);
+      opacity: 0.85;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding: 16px 0;
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.52);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 50px;
+    }
+
+    .footer-brand .name-and-tagline {
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* logo image */
+    .footer-logo {
+      width: 148px;
+      /* adjust if needed */
+      height: auto;
+      flex-shrink: 0;
+      margin-top: 4px;
+      /* optical alignment tweak */
+    }
+
+    /* text stack */
+    .footer-brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-family: "Playfair Display", serif;
+      font-size: 1.75rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+
+    .other-links {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 100px;
+      height: auto;
+    }
+
+    /* Overlay background */
+    .contact-success-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(11, 15, 23, 0.35);
+      backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 400ms ease;
+      z-index: 3000;
+    }
+
+    /* Visible state */
+    .contact-success-overlay.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* Center box */
+    .contact-success-box {
+      background: linear-gradient(135deg, rgba(0, 85, 162, 0.92), rgba(126, 230, 209, 0.55));
+      border: 1px solid rgba(0, 85, 162, 0.2);
+      border-radius: 22px;
+      padding: 40px 50px;
+      text-align: center;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, .25);
+      transform: scale(.92);
+      transition: transform 400ms ease;
+    }
+
+    /* Animate in */
+    .contact-success-overlay.show .contact-success-box {
+      transform: scale(1);
+    }
+
+    /* Typography */
+    .success-title {
+      font-family: "Inter", system-ui;
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 8px;
+    }
+
+    .success-text {
+      font-size: 1rem;
+      font-weight: 500;
+      color: white;
+    }
+
+.other-links {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  gap: 20px;
+  align-items: center;
+}
+
+.other-links {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  gap: 20px;
+  align-items: center;
+}
+
+/* Each logo wrapper gets the square */
+.other-links1,
+.other-links2 {
+  width: 140px;      /* adjust to your preference */
+  height: 60px;      /* identical visual height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0 !important;
+}
+
+.other-links img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+@media (max-width: 600px) {
+      /* 1. Create a 2-column grid for the mobile footer */
+      .footer-inner {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 32px 16px !important;
+      }
+
+      /* 2. Force the logo and description to take up the full top row */
+      .footer-brand {
+        grid-column: 1 / -1 !important;
+      }
+
+      /* (The Quick Links and Contact columns will naturally fall side-by-side here) */
+
+      /* 3. Force the bottom logos into their own full-width row and place them side-by-side */
+      .other-links {
+        grid-column: 1 / -1 !important;
+        flex-direction: row !important; /* Changes them from stacked to side-by-side */
+        justify-content: center !important;
+        gap: 30px !important;
+        padding-top: 10px !important;
+      }
+
+      /* Keep the logos sized appropriately for mobile */
+      .other-links1,
+      .other-links2 {
+        width: 120px !important;
+        height: auto !important;
+      }
+
+      .other-links1,
+      .other-links2 {
+        width: 120px !important;
+        height: 50px !important; /* Use a fixed height instead of 'auto' */
+        flex-shrink: 0 !important; /* CRITICAL: Prevents them from squishing */
+      }
+    }
+
+    @media (max-width: 600px) {
+      /* Keep your other mobile footer rules... */
+
+      /* 1. Ensure the main wrapper has absolutely zero left-pull */
+      .other-links {
+        grid-column: 1 / -1 !important;
+        width: 100% !important;
+        margin: 0 auto !important;
+        padding: 20px 0 0 0 !important; /* Zero left/right padding */
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: center !important; /* Centers the boxes */
+        align-items: center !important;
+        gap: 20px !important;
+        box-sizing: border-box !important;
+      }
+
+      /* 2. Force the link tags to act as centered containers */
+      .other-links1 a,
+      .other-links2 a {
+        display: flex !important;
+        width: 100% !important;
+        height: 100% !important;
+        justify-content: center !important;
+        align-items: center !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+
+      /* 3. Lock the images dead-center inside the links */
+      .other-links img {
+        max-width: 100% !important;
+        max-height: 100% !important;
+        width: auto !important;
+        height: auto !important;
+        object-fit: contain !important;
+        margin: 0 auto !important; /* The magic centering fix */
+        display: block !important;
+      }
+    }
+
+    /* Phone link responsive text */
+    .nav-phone, .nav-ticker {
+      white-space: nowrap;
+      overflow-wrap: normal;
+      word-break: keep-all;
+    }
+    .phone-short {
+      display: none;
+    }
+    @media (max-width: 480px) {
+      .phone-full {
+        display: none;
+      }
+      .phone-short {
+        display: inline;
+      }
+    }
+
+    /* =========================================================
+       #CONTACT SECTION - UNIFIED MOBILE FIX
+    ========================================================= */
+    @media (max-width: 900px) {
+      /* Stop the background from spilling */
+      #contact.contact-light-bg,
+      .contact-light-bg {
+        width: 100vw !important;
+        max-width: 100% !important;
+        padding: 50px 0 !important;
+        overflow-x: hidden !important;
+        box-sizing: border-box !important;
+      }
+
+      /* Center the inner container */
+      #contact .container {
+        width: 90% !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        overflow: hidden !important;
+      }
+
+      #contact .contact-wrapper {
+        grid-template-columns: 1fr !important;
+        gap: 30px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+
+      /* Center text and force wrap */
+      #contact .contact-context {
+        width: 100% !important;
+        text-align: center !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+
+      #contact .contact-context h2 {
+        font-size: clamp(1.8rem, 8vw, 2.6rem) !important;
+        line-height: 1.1 !important;
+        margin: 0 0 15px 0 !important;
+        white-space: normal !important;
+        word-wrap: break-word !important;
+        width: 100% !important;
+      }
+
+      #contact .contact-context p {
+        width: 100% !important;
+        margin: 0 0 25px 0 !important;
+        padding: 0 !important;
+      }
+
+      /* Side-by-side contact buttons */
+      #contact .direct-contact {
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        gap: 8px !important;
+        margin: 0 0 24px 0 !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
+      }
+
+      #contact .direct-contact-item {
+        flex: 1 1 0 !important;
+        width: auto !important;
+        padding: 12px 4px !important;
+        margin: 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        border-radius: 12px !important;
+        background: none !important;
+        border: 1px solid white !important; /* Adjusted to white for dark background */
+        color: white !important; /* Adjusted to white for dark background */
+      }
+
+      #contact .contact-label {
+        font-size: clamp(0.6rem, 2.5vw, 0.75rem) !important;
+        margin: 0 !important;
+        text-align: center !important;
+      }
+
+      #contact .contact-value {
+        display: none !important;
+      }
+
+      /* Keep form inputs inside the box */
+      #contact .inquiry-form {
+        width: 100% !important;
+        box-sizing: border-box !important;
+        padding: 24px 20px !important;
+        margin: 0 !important;
+        border-radius: 18px !important;
+      }
+
+      #contact .form-row {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 16px !important;
+        width: 100% !important;
+      }
+
+      #contact .form-group,
+      #contact .form-input,
+      #contact .form-select {
+        width: 100% !important;
+        box-sizing: border-box !important;
+        max-width: 100% !important;
+      }
+    }
+
+    /* 1. Container alignment */
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    /* 2. Exact typography match from the home page */
+    .brand-name {
+      font-family: "Playfair Display", serif;
+      font-size: 1.75rem;
+      font-weight: 800; /* Makes it bolder */
+      letter-spacing: -0.02em; /* Tightens the spacing */
+      color: white; 
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis; /* Prevents wrapping weirdly */
+      min-width: 0;
+    }
+
+    /* 3. Scale down exactly like the home page on mobile */
+    @media (max-width: 860px) {
+      .brand-name {
+        font-size: 1.15rem !important;
+      }
+      .nav-inner .nav-links {
+          display: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <div class="logo" aria-label="The Diamond Source">
+        <a href="index.html" class="brand-link" style="text-decoration: none;">
+          <div class="brand">
+            <span class="brand-name" style="color: white;">The Diamond Source</span>
+          </div>
+        </a>
+      </div>
+
+      <a class="nav-ticker nav-phone" href="tel:+13129711616" aria-label="Call The Diamond Source">
+        <span class="phone-full">+1 312-971-1616</span>
+        <span class="phone-short">Call</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+  <section class="wwb" aria-label="What we buy">
+    <h2> What We Buy</h2>
+    <div class="wwb-inner">
+      <div class="wwb-rail" aria-label="What we buy items">
+
+        <div class="wwb-item" role="button">
+          <div class="wwb-front">
+            <img src="diamond_image.png" alt="Diamond" />
+            <div class="wwb-meta">
+              <div class="wwb-name">Diamond</div>
+            </div>
+          </div>
+
+          <div class="wwb-back">
+            <h4>Diamond</h4>
+            <p>We offer Natural Diamonds of all shapes.</p>
+          </div>
+        </div>
+
+        <div class="wwb-item" role="button">
+          <div class="wwb-front">
+            <img src="Watch.jpg" alt="Luxury Watches" />
+            <div class="wwb-meta">
+              <div class="wwb-name">Watches</div>
+            </div>
+          </div>
+
+          <div class="wwb-back">
+            <h4>Watches</h4>
+            <p>Rolex, Omega, Cartier, Patek Philippe &amp; more</p>
+          </div>
+        </div>
+
+        <div class="wwb-item" role="button">
+          <div class="wwb-front">
+            <img src="Jewelry.png" alt="Jewelry" />
+            <div class="wwb-meta">
+              <div class="wwb-name">Jewelry</div>
+            </div>
+          </div>
+
+          <div class="wwb-back">
+            <h4>Jewelry</h4>
+            <p>Exceptional Estate Jewelry.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+  </section>
+
+
+
+  <section id="contact" class="contact-section contact-light-bg">
+    <div class="container">
+      <span class="kicker">Contact Us</span>
+      <div class="contact-wrapper">
+        <div class="contact-context">
+          <h2>WE'RE ACTIVELY BUYING</h2>
+          <p>
+            <br>Diamonds, precious gem stones, antique &
+            vintage heirloom pieces. <br>Call, Email or Fill out the form
+          </p>
+
+          <div class="option">
+            <div class="direct-contact">
+              <a href="tel:+18005550199" class="direct-contact-item">
+                <span class="contact-label">Call Us</span>
+                <span class="contact-value">+1 (800) 555-0199</span>
+              </a>
+
+              <a href="mailto:info@thediamondsourceinc.com" class="direct-contact-item">
+                <span class="contact-label">Email Us</span>
+                <span class="contact-value">info@thediamondsourceinc.com</span>
+              </a>
+
+              <a href="https://maps.app.goo.gl/LU7EhdkiQZhj4bmT7" target="_blank" class="direct-contact-item">
+                <span class="contact-label">Our Location</span>
+                <span class="contact-value">Chicago, IL (By Appointment)</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="inquiry-form">
+          <form id="inquiryForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Full Name</label>
+                <input type="text" class="form-input" placeholder="e.g. John Doe" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Cell Phone</label>
+                <input type="tel" class="form-input" placeholder="(555) 000-0000" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Email Address</label>
+              <input type="email" class="form-input" placeholder="name@example.com" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Item information</label>
+              <input type="text" class="form-input" placeholder="Tekk us about your item..."/>
+            </div>
+
+            <!--   <div class="form-group">
+                    <label class="form-label">Preferred Mode of Contact</label>
+                    <select class="form-select">
+                      <option value="" disabled selected>
+                        How would you like us to contact you?</option>
+                      <option value="email">Email</option>
+                      <option value="phone">Phone Call</option>
+                      <option value="text">Text Message</option>
+                    </select>
+                  </div>
+                -->
+            <div class="form-actions">
+              <button type="submit" class="submit-btn">
+                Submit Inquiry
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  </section>
+  </section>
+
+
+  <footer class="site-footer" aria-label="Footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="Logo.jpeg" alt="The Diamond Source logo" class="footer-logo" />
+        <div class="name-and-tagline">
+          <div class="footer-name">The Diamond Source</div>
+          <p class="footer-desc">
+            A private firm dedicated to the professional acquisition of natural
+            diamonds and estate jewelry.
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-title">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li>
+            <a href="index.html#contact">Contact Us</a>
+          </li>
+          <li>
+            <a href="What_we_buy.html">We Buy</a>
+          </li>
+
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-title">Contact</h4>
+        <ul class="footer-links">
+          <a href="tel:+18005550199">Call</a>
+          <a href="mailto:info@thediamondsourceinc.com">Email</a>
+          <a href="https://maps.app.goo.gl/TFYzMFKKcgifVCBg8" target="_blank">Maps</a>
+          <a href="https://www.instagram.com/thediamondsource.inc?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+            target="_blank">Instagram</a>
+        </ul>
+      </div>
+
+      <div class="other-links">
+        <div class="other-links1">
+          <a href="https://www.rapnet.com" target="_blank" rel="noopener noreferrer">
+            <img src="rapnet.jpeg" alt="Rapnet" class="footer-first-link" />
+          </a>
+        </div>
+        <div class="other-links2">
+          <a href="https://www.gia.edu" target="_blank" rel="noopener noreferrer">
+            <img src="gia-logo.png" alt="GIA" class="footer-second-link" />
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      © <span id="footerYear"></span>2026 The Diamond Source. All rights
+      reserved.
+    </div>
+  </footer>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const successOverlay = document.getElementById("contact-success");
+      if (!successOverlay) return;
+
+      function bindSuccess(formId) {
+        const form = document.getElementById(formId);
+        if (!form) return;
+
+        form.addEventListener("submit", (e) => {
+          e.preventDefault();
+
+          successOverlay.classList.add("show");
+          form.reset();
+
+          setTimeout(() => {
+            successOverlay.classList.remove("show");
+          }, 3000);
+        });
+      }
+
+      bindSuccess("contactForm");   // your contact form
+      bindSuccess("inquiryForm");   // if you add/keep this form too
+    });
+  </script>
+
+
+  <div id="contact-success" class="contact-success-overlay" role="status" aria-live="polite">
+    <div class="contact-success-box">
+      <div class="success-title">Thank You</div>
+      <div class="success-text">We will get back to you soon.</div>
+    </div>
+  </div>
+</body>
+
+</html>
