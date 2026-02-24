@@ -504,9 +504,12 @@
       }
 
       .hero h1,
-      .hero p,
       .hero-cta-row {
         text-align: center;
+      }
+
+      .hero p {
+        display: none;
       }
     }
 
@@ -4640,7 +4643,7 @@
         const isCallHours = hour >= 9 && hour < 16; // 9:00 - 15:59
         if (isCallHours) {
           el.textContent = "Call Now";
-          el.href = "tel:+17086839833";
+          el.href = "tel:+13129711616";
         } else {
           el.textContent = "Schedule Appointment";
           el.href = "#";
