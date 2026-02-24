@@ -1706,6 +1706,50 @@
       <div class="success-text">We will get back to you soon.</div>
     </div>
   </div>
+
+  <script>
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxo6RxNjJVQzc7zuK1H-33h3yOzayGf-18xTBHjcblrYbimGVRBRk-wmLPKSF9NXaSs/exec";
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const forms = [document.getElementById("inquiryForm"), document.getElementById("contactForm")];
+      const successOverlay = document.getElementById("contact-success");
+
+      forms.forEach(form => {
+        if (!form) return;
+        form.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const submitbtn = form.querySelector('button[type="submit"]');
+          submitbtn.innerText = "Sending...";
+          submitbtn.disabled = true;
+
+          const payload = {
+            fullName: form.querySelector('input[name="fullName"]')?.value || form.querySelector('input[placeholder*="Name"]')?.value || "",
+            phone: form.querySelector('input[name="phone"]')?.value || form.querySelector('input[placeholder*="Phone"]')?.value || "",
+            email: form.querySelector('input[type="email"]')?.value || "",
+            details: form.querySelector('textarea')?.value || form.querySelector('select')?.value || form.querySelector('input[placeholder*="item"]')?.value || "",
+            preferredContact: form.querySelector('select[name="preferredContact"]')?.value || "Not Provided",
+          };
+
+          try {
+            await fetch(GOOGLE_SCRIPT_URL, {
+              method: "POST",
+              mode: "no-cors",
+              body: JSON.stringify(payload)
+            });
+
+            successOverlay.classList.add("show");
+            form.reset();
+            setTimeout(() => successOverlay.classList.remove("show"), 4000);
+          } catch (err) {
+            alert("Error sending. Please call +1 312 971 1616");
+          } finally {
+            submitbtn.innerText = "Submit Inquiry";
+            submitbtn.disabled = false;
+          }
+        });
+      });
+    });
+  </script>
 </body>
 
 </html>
