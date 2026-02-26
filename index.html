@@ -3108,7 +3108,7 @@
     }
 
     .contact-section .form-select {
-      color: lightgray;
+      color: black;
     }
 
     /* Focus state */
@@ -3575,6 +3575,23 @@
         object-fit: cover;
         border-radius: 50%;
       }
+    }
+
+    /* Default state (placeholder selected) */
+    .form-select:invalid {
+      color: #999999;
+      /* light gray */
+    }
+
+    /* When user selects a valid option */
+    .form-select:valid {
+      color: #000000;
+      /* black */
+    }
+
+    /* Dropdown options (works in most browsers except some Safari cases) */
+    .form-select option {
+      color: #000000;
     }
   </style>
 </head>
@@ -4883,35 +4900,35 @@
   <script>
     const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxo6RxNjJVQzc7zuK1H-33h3yOzayGf-18xTBHjcblrYbimGVRBRk-wmLPKSF9NXaSs/exec";
 
-function handleForm(formId) {
-  const form = document.getElementById(formId);
+    function handleForm(formId) {
+      const form = document.getElementById(formId);
 
-  if (!form) return;
+      if (!form) return;
 
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
 
-    const formData = new FormData(form);
+        const formData = new FormData(form);
 
-    fetch(SCRIPT_URL, {
-      method: "POST",
-      body: formData
-    })
-      .then(res => res.json())
-      .then(data => {
-        console.log("Success:", data);
-        alert("Form submitted successfully.");
-        form.reset();
-      })
-      .catch(err => {
-        console.error("Error:", err);
-        alert("Something went wrong.");
+        fetch(SCRIPT_URL, {
+          method: "POST",
+          body: formData
+        })
+          .then(res => res.json())
+          .then(data => {
+            console.log("Success:", data);
+            alert("Form submitted successfully.");
+            form.reset();
+          })
+          .catch(err => {
+            console.error("Error:", err);
+            alert("Something went wrong.");
+          });
       });
-  });
-}
+    }
 
-handleForm("inquiryForm");
-handleForm("contactForm");
+    handleForm("inquiryForm");
+    handleForm("contactForm");
   </script>
 </body>
 
