@@ -4880,44 +4880,8 @@
   </div>
 
 
-  <script>
-    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxo6RxNjJVQzc7zuK1H-33h3yOzayGf-18xTBHjcblrYbimGVRBRk-wmLPKSF9NXaSs/exec";
 
-    document.addEventListener("DOMContentLoaded", () => {
-      const form = document.getElementById("inquiryForm");
-      const successOverlay = document.getElementById("contact-success");
-
-      form.addEventListener("submit", async (e) => {
-        e.preventDefault();
-
-        const submitbtn = form.querySelector(".submitbtn");
-        submitbtn.innerText = "Sending...";
-        submitbtn.disabled = true;
-
-        const formData = new FormData(form);
-
-        try {
-          await fetch(GOOGLE_SCRIPT_URL, {
-            method: "POST",
-            body: formData
-          });
-
-          if (successOverlay) {
-            successOverlay.classList.add("show");
-            setTimeout(() => successOverlay.classList.remove("show"), 4000);
-          }
-
-          form.reset();
-
-        } catch (err) {
-          alert("Error sending. Please call +1 312 971 1616");
-        }
-
-        submitbtn.innerText = "Submit Inquiry";
-        submitbtn.disabled = false;
-      });
-    });
-  </script>
+<script src="forms.js"></script>
 </body>
 
 
