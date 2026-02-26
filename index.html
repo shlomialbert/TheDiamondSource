@@ -4888,14 +4888,20 @@
       const successOverlay = document.getElementById("contact-success");
 
       forms.forEach(form => {
+        if (form.id === "modalContactForm") return;
+
         form.addEventListener("submit", async (e) => {
           e.preventDefault();
 
-          const submitbtn = form.querySelector('button[type="submit"]');
-          submitbtn.innerText = "Sending...";
-          submitbtn.disabled = true;
-
           const formData = new FormData(form);
+
+          const submitbtn = form.querySelector('button[type="submit"]');
+          let originalBtnText = "Submit";
+          if (submitbtn) {
+            originalBtnText = submitbtn.innerText;
+            submitbtn.innerText = "Sending...";
+            submitbtn.disabled = true;
+          }
 
           try {
             await fetch(GOOGLE_SCRIPT_URL, {
@@ -4909,16 +4915,18 @@
             }
 
             form.reset();
-
           } catch (err) {
-            alert("Error sending. Please call +1 312 971 1616");
+            alert("Error sending. Please call: +1 312 971 1616");
+            console.error(err);
+          } finally {
+            if (submitbtn) {
+              submitbtn.innerText = originalBtnText;
+              submitbtn.disabled = false;
+            }
           }
-
-          submitbtn.innerText = "Submit Inquiry";
-          submitbtn.disabled = false;
-        });
-      });
-    });
+        })
+      })
+    })
   </script>
 </body>
 
