@@ -1584,44 +1584,39 @@
         </div>
 
         <div class="inquiry-form">
-          <form id="inquiryForm">
+          <form id="contactForm">
+
+            <!-- Important: Different form_type -->
+            <input type="hidden" name="form_type" value="contactForm">
+
             <div class="form-row">
               <div class="form-group">
                 <label class="form-label">Full Name</label>
-                <input type="text" class="form-input" placeholder="e.g. John Doe" required />
+                <input type="text" name="fullName" class="form-input" placeholder="e.g. John Doe" required />
               </div>
+
               <div class="form-group">
                 <label class="form-label">Cell Phone</label>
-                <input type="tel" class="form-input" placeholder="(555) 000-0000" required />
+                <input type="tel" name="phone" class="form-input" placeholder="(555) 000-0000" required />
               </div>
             </div>
 
             <div class="form-group">
               <label class="form-label">Email Address</label>
-              <input type="email" class="form-input" placeholder="name@example.com" required />
+              <input type="email" name="email" class="form-input" placeholder="name@example.com" required />
             </div>
 
             <div class="form-group">
               <label class="form-label">Item information</label>
-              <input type="text" class="form-input" placeholder="Tekk us about your item..." />
+              <input type="text" name="details" class="form-input" placeholder="Tell us about your item..." />
             </div>
 
-            <!--   <div class="form-group">
-                    <label class="form-label">Preferred Mode of Contact</label>
-                    <select class="form-select">
-                      <option value="" disabled selected>
-                        How would you like us to contact you?</option>
-                      <option value="email">Email</option>
-                      <option value="phone">Phone Call</option>
-                      <option value="text">Text Message</option>
-                    </select>
-                  </div>
-                -->
             <div class="form-actions">
               <button type="submit" class="submit-btn">
                 Submit Inquiry
               </button>
             </div>
+
           </form>
         </div>
       </div>
@@ -1731,55 +1726,38 @@
     const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxo6RxNjJVQzc7zuK1H-33h3yOzayGf-18xTBHjcblrYbimGVRBRk-wmLPKSF9NXaSs/exec";
 
     document.addEventListener("DOMContentLoaded", () => {
-      const forms = [document.getElementById("inquiryForm"), document.getElementById("contactForm")];
+      const forms = document.querySelectorAll("form");
       const successOverlay = document.getElementById("contact-success");
 
       forms.forEach(form => {
-        if (!form) return;
         form.addEventListener("submit", async (e) => {
           e.preventDefault();
+
           const submitbtn = form.querySelector('button[type="submit"]');
           submitbtn.innerText = "Sending...";
           submitbtn.disabled = true;
 
-          const payload = {
-            // Finds name by checking your specific placeholder
-            fullName: form.querySelector('input[placeholder*="John Doe"]')?.value ||
-              form.querySelector('input[placeholder*="Name"]')?.value || "",
-
-            // Finds phone by type
-            phone: form.querySelector('input[type="tel"]')?.value || "",
-
-            // Finds email by type
-            email: form.querySelector('input[type="email"]')?.value || "",
-
-            // Logic for the Details/Interest column
-            // Checks for the "Tekk us..." input (What We Buy) or the select/textarea (Index)
-            details: form.querySelector('input[placeholder*="Tekk"]')?.value ||
-              form.querySelector('select')?.value ||
-              form.querySelector('textarea')?.value || "",
-
-            // Checks for the second select (Preference) - if missing, it sends "Not Provided"
-            preferredContact: form.querySelectorAll('select')[1]?.value || "Not Provided"
-          };
-
+          const formData = new FormData(form);
 
           try {
             await fetch(GOOGLE_SCRIPT_URL, {
               method: "POST",
-              mode: "no-cors",
-              body: JSON.stringify(payload)
+              body: formData
             });
 
-            successOverlay.classList.add("show");
+            if (successOverlay) {
+              successOverlay.classList.add("show");
+              setTimeout(() => successOverlay.classList.remove("show"), 4000);
+            }
+
             form.reset();
-            setTimeout(() => successOverlay.classList.remove("show"), 4000);
+
           } catch (err) {
             alert("Error sending. Please call +1 312 971 1616");
-          } finally {
-            submitbtn.innerText = "Submit Inquiry";
-            submitbtn.disabled = false;
           }
+
+          submitbtn.innerText = "Submit Inquiry";
+          submitbtn.disabled = false;
         });
       });
     });
