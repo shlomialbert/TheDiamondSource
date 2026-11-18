@@ -4931,6 +4931,53 @@
     handleForm("inquiryForm");
     handleForm("contactForm");
   </script>
+  <!-- Anti-bot guard: honeypot + minimum fill time. Additive only; adds no fields to the submitted data. -->
+  <script>
+    (function () {
+      var MIN_SECONDS = 3;
+      var loadedAt = Date.now();
+      var GUARDED = ["inquiryForm", "contactForm"];
+
+      function addHoneypots() {
+        GUARDED.forEach(function (id) {
+          var form = document.getElementById(id);
+          if (!form || form.querySelector(".hp-guard")) return;
+          var wrap = document.createElement("div");
+          wrap.className = "hp-guard";
+          wrap.setAttribute("aria-hidden", "true");
+          wrap.style.cssText = "position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;";
+          var input = document.createElement("input");
+          input.type = "text";           /* intentionally no name, so it is never part of FormData */
+          input.tabIndex = -1;
+          input.setAttribute("autocomplete", "off");
+          wrap.appendChild(input);
+          form.appendChild(wrap);
+        });
+      }
+      if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", addHoneypots);
+      else addHoneypots();
+
+      /* Capture phase on document runs before any handler attached to the form itself */
+      document.addEventListener("submit", function (e) {
+        var form = e.target;
+        if (!form || GUARDED.indexOf(form.id) === -1) return;
+        var hp = form.querySelector(".hp-guard input");
+        var filled = hp && hp.value.trim() !== "";
+        var tooFast = (Date.now() - loadedAt) < MIN_SECONDS * 1000;
+        if (!filled && !tooFast) return;      /* human: let the normal flow run untouched */
+
+        e.preventDefault();
+        e.stopImmediatePropagation();         /* nothing is sent to Google Sheets */
+        var overlay = document.getElementById("contact-success");
+        if (overlay) {
+          overlay.classList.add("show");
+          setTimeout(function () { overlay.classList.remove("show"); }, 3000);
+        }
+        form.reset();
+      }, true);
+    })();
+  </script>
+
 </body>
 
 
